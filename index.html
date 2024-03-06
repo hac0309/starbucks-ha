@@ -31,9 +31,58 @@
 
   <!-- 스타일 초기화 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+  <!-- 구글 웹폰트 연결 -->
+  <!-- 구글 웹폰트: 경량화된 오픈 라이선스 폰트, 한글 지원하는지 확인 및 필요한 굵기만 선택 후 연결 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- 구글 머티리얼 아이콘: 구글에서 제공하는 머티리얼 스타일의 아이콘, 글자처럼 취급 가능한 장점 -->
+  <!-- 그 외, fontawesome, bootstrap icon 등 -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+
   <link rel="stylesheet" href="css/main.css">
+  <script defer src="js/main.js"></script>
 </head>
 <body>
-  
+  <!-- HEADER -->
+  <header>
+    <!-- .inner: 내용을 가운데 정렬하는 용도 -->
+    <div class="inner">
+      <a href="./index.html" class="logo">
+        <img src="./images/starbucks_logo.png" alt="STARBUCKS">
+      </a>
+
+      <!-- 서브 메뉴(헤더 오른쪽 상단) -->
+      <div class="sub-menu">
+        <!-- 메뉴 아이템 -->
+        <ul class="menu">
+          <li>
+            <a href="/signin">Sign In</a>
+          </li>
+          <li>
+            <!-- #을 쓰면 CSS id 선택자를 이용해 페이지 내 특정 위치로 이동하기 때문에 
+              찾는 id 값이 없으면 페이지 최상단으로 이동, 이게 싫으면 JS 이용 -->
+            <a href="javascript:void(0)">My Starbucks</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Customer Service & Ideas</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">Find a Store</a>
+          </li>
+        </ul>
+
+        <!-- 검색 영역 -->
+        <div class="search">
+          <input type="text">
+          <span class="material-icons">
+            search
+            </span>
+        </div>
+      </div>
+    </div>
+  </header>
 </body>
 </html>
