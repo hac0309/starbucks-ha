@@ -11,7 +11,13 @@ searchEl.addEventListener('click', function () { //이벤트 핸들러
 });
 
 // input 요소에 포커스되면 placeholder 추가
-/
+searchInputEl.addEventListener('focus', function () {
+  searchInputEl.setAttribute('placeholder', '통합검색');
+});
 
 
 // input 요소에 포커스 해제(blur)되면 placeholder 초기화
+searchInputEl.addEventListener('blur', function () {
+  searchInputEl.removeAttribute('placeholder', '통합검색');
+});
+
