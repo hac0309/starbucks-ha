@@ -9,3 +9,9 @@ const searchInputEl = searchEl.querySelector('input');
 searchEl.addEventListener('click', function () { //이벤트 핸들러
   searchInputEl.focus(); // 요소에 포커스 강제 적용
 });
+
+// input 요소에 포커스되면 placeholder 추가
+/
+
+
+// input 요소에 포커스 해제(blur)되면 placeholder 초기화
