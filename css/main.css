@@ -7,10 +7,16 @@ body {
   line-height: 1.4;
   color: #333;
   /* 위 속성들은 모두 상속되기에 전체 스타일을 한번에 제어 */
+  overflow-x: hidden;
 }
 
 a{
   text-decoration: none;
+}
+
+img {
+  /* 이미지가 인라인 요소라서 발생하는 문자 기준선(Baseline) 아래의 공간을 제거하기 위해 */
+  display: flex;
 }
 
 .inner {
@@ -24,13 +30,76 @@ a{
   position: relative;
 }
 
+/* 전역 버튼 스타일 */
+/* 버튼과 같이 여러 곳에서 반복 사용되는 요소를 공통스타일로 작업하면, 매번 다시 작성할 필요가 없음 */
+.btn {
+  width: 130px;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  cursor: pointer;
+  display: block; /* a, span 같은 인라인 요소를 버튼으로 사용할 수도 있으니 블록으로 지정*/
+  transition: 0.4s;
+
+    /* (참고) 커서 모양 커스텀 */
+  cursor: url("../images/free-icon-pattern-1705387.png") , auto;
+}
+.btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+.btn.btn--brown{
+  color: #592b18;
+  border-color: #592b18;
+}
+.btn.btn--brown:hover {
+  color: #fff;
+  border-color: #592b18;
+}
+.btn.btn--reverse {
+  background-color: #333;
+  color: #fff;
+}
+.btn.btn--reverse:hover {
+  background-color: transparent;
+  color: #333;
+}
+.btn.btn--gold {
+  color: #d9aa8a;
+  border-color: #d9aa8a;
+}
+.btn.btn--gold:hover {
+  color: #fff;
+  background-color: #d9aa8a;
+}
+.btn.btn--white {
+  color: #fff;
+  border-color: #fff;
+}
+.btn.btn--white:hover {
+  color: #333;
+  background-color: #fff;
+}
+
+
+
 /* HEADER */
 header {
-  background-color: #fff9a4;
+  background-color: #f6f5f0;
+  border-bottom: 1px solid #c8c8c8;
+  width: 100%; /* 가로 너비를 지정하지 않으면 최소한으로 줄어드려고 함 */
+  position: fixed;
+  top: 0;
+  z-index: 9;
 }
 
 header > .inner {
-  background-color: #ffc9c9;
+  /* background-color: #ffc9c9; */
   height: 120px;
 }
 
@@ -119,4 +188,246 @@ header .sub-menu .search .material-icons {
   bottom: 0;
   right: 5px;
   margin: auto;
+  transition: opacity 0.4s;
+}
+
+
+
+/* header .sub-menu .search.focused .material-icons {
+  opacity: 0;
+} */
+
+/* 또는 focused 클래스 추가 없이 선택하는 법 */
+header .sub-menu .search input:focus + .material-icons {
+  opacity: 0;
+}
+
+header .main-menu {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1; /* 드롭다운 될 요소가 더 위에 보이게 하려고 */
+}
+
+header .main-menu .item .item__name {
+  display: block; /* 상하 여백 적용을 위해 변경 */
+  padding: 10px 20px 34px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #333;
+}
+
+header .main-menu .item:hover .item__name {
+  background-color: #2c2a29;
+  color: #669900;
+  border-radius: 6px 6px 0 0; /* 좌상단부터 시계 방향 적용 */
+}
+
+header .main-menu .item .item__contents {
+  background-color: #2c2a29;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  display: none;
+}
+
+header .main-menu .item:hover .item__contents {
+  display: block;
+}
+
+header .main-menu .item .item__contents > ul { /* 이땐 자식선택자 > 말고 하위선택자를 사용하면 안됨 주의해야 함 */
+  display: flex;
+  padding: 20px ;
+}
+
+header .main-menu .item .item__contents > ul > li {
+  /* 상세 메뉴 가로 너비를 통일 */
+  width: 220px;
+}
+
+header .main-menu .item .item__contents > ul > li h4 {
+  padding: 3px 0 12px; 
+  font-size: 14px;
+  color: #fff;
+}
+
+header .main-menu .item .item__contents > ul > li ul li {
+  padding: 5px 0;
+  font-size: 12px;
+  color: #999;
+  cursor: pointer;
+}
+
+header .main-menu .item .item__contents > ul > li ul li:hover {
+  color: #669900;
+}
+
+/* 전역 배지(고정 배너) */
+header .badges {
+  position: fixed; /* 배치의 기준이 뷰포트로 바뀌며 붕 뜸*/
+  top: 132px;
+  right: 12px;
+  /* transition: 0.6s; */
+
+  /* position: absolute;
+  top: 132px;
+  right: 12px; */
+}
+
+header .badges .badge {
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  /* x축거리, y축거리, 흐림 처리(blur) 범위[그림자 흐리게], 확대/축소(spread) 범위, 색상 */
+  box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+/* VISUAL */
+.visual {
+  /* (중요)
+    헤더가 fixed 되어 일반 배치 흐름에서 벗어남(주변 요소들과 상호작용 하지 않음) 
+    헤어 다음에 오는 섹션은 헤더의 높이만큼 외부 여백 추가 필요*/
+  margin-top: 120px;
+  background-image: url("../images/visual_bg.jpg");
+  background-position: center;
+}
+
+.visual .inner {
+  height: 646px;
+  
+}
+
+.visual .title {
+  position: absolute;
+  top: 88px;
+  left: -10px;
+}
+
+.visual .title .btn {
+  position: absolute;
+  top: 259px;
+  left: 173px;
+}
+
+.visual .cup1.image {
+  position: absolute;
+  bottom: 0;
+  right: -47px;
+}
+
+.visual .cup1.text {
+  position: absolute;
+  top: 38px;
+  right: 171px;
+}
+
+.visual .cup2.image {
+  position: absolute;
+  bottom: 0;
+  right: 162px;
+}
+
+.visual .cup2.text {
+  position: absolute;
+  top: 321px;
+  right: 416px;
+}
+
+.visual .spoon {
+  position: absolute;
+  bottom: 0;
+  left: 275px;
+}
+.visual .fade-in {
+  /* 투명한 상태에서 시작되도록 세팅 */
+  opacity: 0;
+}
+
+/* NOTICE */
+.notice {
+  position: relative;
+}
+.notice .bg-left {
+  width: 50%;
+  height: 100%;
+  background-color: #333;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.notice .bg-right {
+  width: 50%;
+  height: 100%;
+  background-color: #f6f5f0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.notice .inner {
+  height: 62px;
+  /* border: 2px solid red; */
+  display: flex;
+}
+
+.notice .inner__left {
+  /* 방법1. %를 사용하여 비율 나누기 */
+  /* width: 70%; */
+  /* 방법2. flex를 사용하여 비율 나누기 */
+  flex: 7;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.notice .inner__left h2 {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  margin-right: 20px;
+}
+
+.notice .inner__left .swiper {
+  height: 62px;
+  flex-grow: 1; /* 최대한 늘어나도록 지정, flex:1 도 같음 */
+}
+
+.notice .inner__left .swiper .swiper-slide {
+  display: flex;
+  align-items: center;
+}
+
+.notice .inner__left .swiper .swiper-slide a {
+  color: #fff;
+}
+
+.notice .inner__left .notice-more {
+  width: 62px;
+  height: 62px;
+
+  /* 정중앙 정렬 */
+  /* 정중앙 정렬(1) */
+  text-align: center;
+
+  /* 정중앙 정렬(2) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notice .inner__left .notice-more .material-icons {
+  /* 정중앙 정렬(1) */
+  /* line-height: 62px; */
+
+  /* 아이콘은 글자 관련 속성이 적용됨 */
+  color: #fff;
+  font-size: 30px;
+}
+
+.notice .inner__right {
+  /* 방법1. %를 사용하여 비율 나누기 */
+  /* width: 30%; */
+  /* 방법2. flex를 사용하여 비율 나누기 */
+  flex: 3;
 }
