@@ -430,4 +430,281 @@ header .badges .badge {
   /* width: 30%; */
   /* 방법2. flex를 사용하여 비율 나누기 */
   flex: 3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.notice .inner__right h2 {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.notice .inner__right .toggle-promotion {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.notice .inner__right .toggle-promotion .material-icons {
+  font-size: 30px;
+}
+
+
+/* PROMOTION */
+.promotion {
+  height: 663px;
+  background-color: #f6f5f0;
+  display: flex;
+  justify-content: center; /* 슬라이드 수평 가운데 정렬 */
+  position: relative; /* 페이지네이션 요소 배치를 위해 */
+  overflow: hidden;
+  transition: height 0.4s;
+}
+
+.promotion.hide {
+  /* display: none; */
+  height: 0;
+}
+
+
+.promotion .swiper {
+  /* 이미지(819px) 슬라이드 3개 + 사이 여백(10px) 2개 = 2477px */
+  width: calc(819px * 3 + 10px *2);
+  /* 활용 예시: width: calc(100% - 120px); */
+  height: 553px;
+  /* Flex Item인 .swiper가 2477px을 유지하기 위해 감소 너비 비율을 0d으로~!~!~!~!~ */
+  flex-shrink: 0;
+}
+
+.promotion .swiper-slide {
+  /* 모든 슬라이드를 반투명하게, active 한 것만 불투명하게 */
+  opacity: .5;
+  transition: opacity 1s;
+  position: relative;
+}
+
+.promotion .swiper-slide-active {
+  opacity: 1;
+}
+
+.promotion .swiper-slide .btn {
+  position: absolute;
+  bottom: 0;
+  /* Quiz: absolute 요소의 수평 가운데 배치 */
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+}
+
+.promotion .swiper-pagination {
+  position: absolute;
+  bottom: 40px;
+  /* 헤더의 z-index가 9이기 때문에 1로 덮어씌움 아니면 헤더를 10보다 크게 해도 됨 */
+  z-index: 1;
+}
+
+.promotion .swiper-pagination .swiper-pagination-bullet {
+  /* 기존 배경색은 투명하게 숨기고, 배경 이미지를 사용 */
+  background-color: transparent;
+  background-image: url("../images/promotion_slide_pager.png");
+  width: 13px;
+  height: 12px;
+}
+
+.promotion .swiper-pagination .swiper-pagination-bullet-active {
+  background-image: url("../images/promotion_slide_pager_on.png");
+} 
+
+/* 다중 선택으로 공통 스타일 지정 */
+.promotion .swiper-button-prev, .promotion .swiper-button-next {
+  width: 42px;
+  height: 42px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  position: absolute;
+  top: 300px;
+  z-index: 1;
+  color: #333;
+  transition: 0.4s;
+}
+
+.promotion .swiper-button-prev {
+  /* 가운데 몰아놓고 마진으로 위치 조정 */
+  left: 50%;
+  margin-left: -480px;
+}
+
+.promotion .swiper-button-next {
+  /* 가운데 몰아놓고 마진으로 위치 조정 */
+  right: 50%;
+  margin-right: -480px;
+}
+
+.promotion .swiper-button-prev:hover,
+.promotion .swiper-button-next:hover {
+  background-color: #333;
+  color: #fff;
+} 
+
+.promotion .swiper-button-prev::after,
+.promotion .swiper-button-next::after {
+  display: none;
+}
+
+/* REWARDS */
+.rewards {
+  /* absolute 요소 배치를 위해 부모에 위치 기준 */
+  position: relative;
+}
+
+.rewards .bg-left {
+  width: 50%;
+  height: 100%;
+  background-color: #272727;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.rewards .bg-right {
+  width: 50%;
+  height: 100%;
+  background-color: #d5C798;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.rewards .inner {
+  height: 241px;
+  background-image: url('../images/rewards.jpg');
+}
+
+
+.rewards .btn-group {
+  width: 250px;
+  display: flex;
+  flex-wrap: wrap;
+  /* 버튼 하나의 크기가 130px */
+  position: absolute;
+  right: 0;
+  bottom: 24px;
+}
+
+.rewards .btn-group .btn.sign-up {
+  margin-right: 10px;
+}
+
+.rewards .btn-group .btn.sign-in {
+  width: 110px;;
+}
+
+.rewards .btn-group .btn.gift {
+  /* Flex Container 내부에서 최대한의 너비를 쓸 수 있도록 */
+  /* flex-gorw: 1; */
+  flex: 1;
+  margin-top: 10px;
+}
+
+/* YOUTUBE */
+.youtube {
+  position: relative; /* 부모에 위치 기준*/
+  height: 700px;
+  background-color: #333;
+
+  /* 정가운데 배치 방법 1 */
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+
+  overflow: hidden; /* 영상 출력 넘치는 부분 숨기기 */
+}
+
+.youtube .youtube__area {
+  /* 유튜브 표준 영상 비율 = 16:9 */
+  width: 1920px;
+  height: 1080px;
+  /* 정가운데 배치 방법 2 */
+  /* position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto; */
+
+  /* 정가운데 배치 방법 3 */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /* 가로 너비의 절반만큼 땡겨오기 */
+  /* margin-left: calc(1920px / -2); */
+  /* 세로 높이의 절반만큼 땡겨오기 */
+  /* margin-top: calc(1080px / -2); */
+
+  /* (참고) 중복 스타일 변수로 선언 */
+  /* 너비, 높이를 수정할 경우 총 4곳 수정 필요 -> CSS변수 선언으로 재사용 
+    2개의 대시(--)기호로 시자갛고 원하는 변수명 지정: CSS 값
+    선언된 변수는 CSS var() 함수를 통해 사용
+
+    활용 ㅇㅖ: 주로 색상 지정 시 사용
+  */
+  /* 주의! 자신이 선언된 선택자와 그 하위 요소에서만 유효
+    전역 변수로 사용하고 싶으면,
+    html {
+      --error: red;
+    } 또는
+    :root {
+      --error: red;
+      }
+   */
+  --width: 1920px;
+  --height: 1080px;
+  width: var(--width);
+  height: var(--height);
+  margin-left: calc(var(--width) / -2);
+  margin-top: calc(var(--height) / -2);
+}
+
+#player {
+  /* 부모 영역에 가득 차도록 지정 */
+  width: 100%;
+  height: 100%;
+}
+
+.youtube .youtube__cover {
+  /* Tip! 화면 전체 영역 덮기 */
+  /* position: fixed;
+  z-index: 99; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-image: url("../images/video_cover_pattern.png");
+}
+
+.youtube .inner {
+  height: 100%;
+  overflow: visible;
+}
+
+.youtube .floating1 {
+  position: absolute;
+  top: 50px;
+  left: 0;
+}
+.youtube .floating2 {
+  position: absolute;
+  top: 350px;
+  left: 150px;
+}
+.youtube .floating3 {
+  position: absolute;
+  bottom: -200px;
+  right: 0;
 }

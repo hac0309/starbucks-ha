@@ -55,6 +55,9 @@
   <!-- SWIPER JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
+  <!-- youtube.js -->
+  <script defer src="js/youtube.js"></script>
+
   <!-- main.js -->
   <script defer src="js/main.js"></script>
 </head>
@@ -406,8 +409,84 @@
         </a>
       </div>
       <div class="inner__right">
-
+        <h2>스타벅스 프로모션</h2>
+        <div class="toggle-promotion">
+          <span class="material-icons">upload</span>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- PROMOTION -->
+  <section class="promotion">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="./images/promotion_slide1.jpg" alt="">
+          <a href="javascript:void(0)" class="btn">자세히 보기</a>
+        </div>
+
+        <div class="swiper-slide">
+          <img src="./images/promotion_slide2.jpg" alt="">
+          <a href="javascript:void(0)" class="btn">자세히 보기</a>
+        </div>
+
+        <div class="swiper-slide">
+          <img src="./images/promotion_slide3.jpg" alt="">
+          <a href="javascript:void(0)" class="btn">자세히 보기</a>
+        </div>
+
+        <div class="swiper-slide">
+          <img src="./images/promotion_slide4.jpg" alt="">
+          <a href="javascript:void(0)" class="btn">자세히 보기</a>
+        </div>
+
+        <div class="swiper-slide">
+          <img src="./images/promotion_slide5.jpg" alt="">
+          <a href="javascript:void(0)" class="btn">자세히 보기</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-pagination"></div>
+
+    <div class="swiper-button-prev">
+      <span class="material-icons">arrow_back</span>
+    </div>
+
+    <div class="swiper-button-next">
+      <span class="material-icons">arrow_forward</span>
+    </div>
+  </section>
+
+  <!-- REWARDS -->
+  <section class="rewards">
+    <div class="bg-left"></div>
+    <div class="bg-right"></div>
+    <div class="inner">
+      <!-- div로 묶는 이유~? 버튼 3개를 한번에 제어 및 조작하기 위해 -->
+      <div class="btn-group">
+        <a href="javascript:void(0)" class="btn btn--reverse sign-up">회원가입</a>
+        <a href="javascript:void(0)" class="btn sign-in">로그인</a>
+        <a href="javascript:void(0)" class="btn gift">e-Gift 선물하기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- YOUTUBE -->
+  <section class="youtube">
+    <!-- 영상이 출력될 영역 -->
+    <div class="youtube__area">
+      <!-- 실제 영상이 재생될 요소 -->
+      <div id="player"></div>
+    </div>
+    <!-- 섹션 전체를 덮을 커버 요소 -->
+    <div class="youtube__cover"></div>
+
+    <div class="inner">
+      <img src="./images/floating1.png" class="floating1">
+      <img src="./images/floating2.png" class="floating2">
+      <img src="./images/floating3.png" class="floating3">
     </div>
   </section>
 </body>
