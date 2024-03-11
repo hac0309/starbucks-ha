@@ -17,11 +17,11 @@ function onYouTubeIframeAPIReady() { // 라이브러리가 이 함수의 이름�
   player = new YT.Player('player', { // id가 player인 요소
     // height: '360',
     // width: '640',
-    videoId: 'VHQsdqy2s80', // 최초 재생할 유튜브 영상 ID
+    videoId: 'oaynRgUBHAE', // 최초 재생할 유튜브 영상 ID
     playerVars: { // 더 자세한 옵션은 플레이어 매개변수 메뉴 확인
       autoplay: true, // 자동 재생 유무
       loop: true, // 반복 재생 유무(아래 'playlist'옵션 필수)
-      playlist: 'VHQsdqy2s80' // 반복 재생할 유튜브 영상 ID 목록
+      playlist: 'oaynRgUBHAE' // 반복 재생할 유튜브 영상 ID 목록
     },
     events: {
       // 영상이 준비되었을 때 지정한 함수를 실행
